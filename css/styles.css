@@ -1,55 +1,83 @@
-/* ==================================================
-   0. CONTENEDOR GENERAL
-   ================================================== */
-
-/* Limita el ancho del contenido y lo centra */
-.container {
-    width: 90%;          /* Ocupa el 90% del ancho del contenedor padre */
-    max-width: 1100px;   /* Impide que supere los 1100 píxeles */
-    margin: 0 auto;      /* Centra horizontalmente el bloque */
-}
-
-
 /* ==========================================
-   1. HEADER — FLEXBOX
+   0. ESTILOS GENERALES
    ========================================== */
 
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* ==========================================
+   1. CONTENEDOR REUTILIZABLE
+   ========================================== */
+
+.container {
+    width: 90%;          /* Ocupa el 90% del ancho disponible */
+    max-width: 1100px;   /* Limita el ancho máximo */
+    margin: 0 auto;      /* Centra horizontalmente el contenedor */
+}
+
+/* ==========================================
+   2. HEADER — FLEXBOX
+   ========================================== */
+
+/* Apariencia general del Header */
+.header {
+    background-color: #ffbf69; /* Fondo naranja */
+    padding: 24px 0;           /* 24px arriba y abajo; 0 a los lados */
+}
 /* Distribución del logotipo y la navegación */
 .header .container {
-    display: flex;                    /* Activa Flexbox */
-    justify-content: space-between;   /* Separa logo y menú */
-    align-items: center;              /* Alinea ambos verticalmente */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-/* Menú de navegación: Flex Container */
+/* Distribución de los enlaces del menú */
 .header nav {
-    display: flex; /* Convierte los enlaces directos en Flex Items */
-    gap: 24px;      /* Establece 24px de separación entre los enlaces */
+    display: flex;
+    gap: 24px;
 }
 
+/* Estilos del logotipo */
+.header .logo {
+    font-size: 28px;     /* Tamaño del texto */
+    font-weight: 700;    /* Grosor de la fuente: negrita */
+    color: #000000;      /* Color negro */
+}
 
+/* Estilos de los enlaces de navegación */
+.header nav a {
+    color: #000000;          /* Color negro del texto */
+    text-decoration: none;   /* Elimina el subrayado */
+    font-size: 16px;         /* Tamaño de la fuente */
+    font-weight: 500;        /* Grosor medio de la fuente */
+}
 
+/* Efecto al pasar el cursor sobre los enlaces */
+.header nav a:hover {
+    color: #ffffff; /* Cambia el texto a blanco */
+}
 
+/* ==========================================
+   3. DIAGNÓSTICO VISUAL — TEMPORAL
+   ========================================== */
 
-/* ==========================================================
-4. DIAGNÓSTICO VISUAL — GRID Y FLEXBOX
-==========================================================
-
-========================================================== */
-.header {
+/* Contorno del Header */
+/* .header {
     outline: 1px solid #1e3a5f;
-}
-.header * {
-    outline: 1px solid #1e3a5f;
-}
+} */
 
-/* Contorno del contenedor interno del Header */
-.header .container {
+/* Contorno del contenedor interno */
+/* .header .container {
     outline: 2px dashed red;
-}
+} */
 
-/* Contornos de los Flex Items directos */
-.header .container > * {
+/* Contornos del logotipo y la navegación */
+/* .header .container > * {
     outline: 2px dashed blue;
-}
-
+} */
