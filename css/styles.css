@@ -233,5 +233,41 @@ body {
            del ancho del viewport para mostrar el juguete */
         padding-bottom: 65vw;
     }
+}
 
+/* ==========================================
+   5. ABOUT — SECCIÓN INFORMATIVA
+   ========================================== */
+
+/* Apariencia general de la sección informativa */
+.about {
+
+    /* Conserva el fondo blanco del diseño original */
+    background-color: #ffffff;
+
+    /* Agrega 64px de espacio interior arriba y abajo */
+    padding: 64px 0;
+
+    /* Centra horizontalmente el contenido textual */
+    text-align: center;
+}
+
+/* Estilos del título de la sección informativa */
+.about h2 {
+    font-size: 28px;      /* Establece el tamaño del título */
+    font-weight: 700;     /* Aplica negrita al texto */
+    color: #000000;       /* Conserva el color negro del diseño original */
+    margin-top: 0;        /* Elimina el margen superior predeterminado */
+    margin-bottom: 24px;  /* Separa el título del párrafo */
+}
+
+/* Descripción de la sección informativa */
+.about p {
+    max-width: 700px; /* Limita el ancho máximo del párrafo */
+
+    margin: 0 auto;   /* Centra horizontalmente la caja del párrafo */
+
+    font-size: 16px;  /* Define el tamaño del texto */
+
+    line-height: 1.6; /* Establece la altura de línea en 1.6 veces el tamaño de fuente */
 }
