@@ -64,20 +64,174 @@ body {
 }
 
 /* ==========================================
-   3. DIAGNÓSTICO VISUAL — TEMPORAL
+   3. HERO — SECCIÓN PRINCIPAL
    ========================================== */
 
-/* Contorno del Header */
-/* .header {
-    outline: 1px solid #1e3a5f;
-} */
+.hero {
+    /* Establece el color de fondo de la sección */
+    background-color: #ffbf69;
 
-/* Contorno del contenedor interno */
-/* .header .container {
-    outline: 2px dashed red;
-} */
+    /* Carga una imagen de fondo desde la carpeta img */
+    background-image: url("../img/background.png");
 
-/* Contornos del logotipo y la navegación */
-/* .header .container > * {
-    outline: 2px dashed blue;
-} */
+    /* Evita que la imagen se repita horizontal o verticalmente */
+    background-repeat: no-repeat;
+
+    /* Agrega 80px de espacio interior arriba y abajo, y 0 a los lados */
+    padding: 80px 0;
+
+    /* Ajusta la altura de la imagen al 100% del área del fondo.
+       Calcula el ancho automáticamente para conservar sus proporciones */
+    background-size: auto 100%;
+
+    /* Alinea la imagen a la derecha y la centra verticalmente */
+    background-position: right center;
+}
+
+/* Estilos del título principal */
+.hero h1 {
+    font-size: 96px;     /* Tamaño del título */
+    color: #ffffff;      /* Color blanco */
+    margin: 0;          /* Elimina los márgenes predeterminados */
+}
+
+/* Descripción del Hero */
+.hero p {
+    font-size: 20px;    /* Tamaño de la fuente */
+    line-height: 1.5;   /* Altura de línea: 1.5 veces el tamaño de fuente */
+    color: #ffffff;      /* Color blanco */
+    max-width: 450px;   /* Limita el ancho del párrafo */
+}
+
+/* Enlace de compra con apariencia de botón */
+.hero a {
+    display: inline-block;     /* Permite aplicar dimensiones y padding */
+    background-color: #cbf3f0; /* Fondo turquesa claro */
+    color: #000000;            /* Texto negro */
+    text-decoration: none;     /* Elimina el subrayado */
+    padding: 14px 32px;        /* Espacio interior */
+    transition: background-color 0.3s ease;
+}
+
+/* Cambio de color al pasar el cursor */
+.hero a:hover {
+    background-color: #91e7e0;
+}
+
+/* ==================================================
+   4. RESPONSIVE DESIGN
+   ================================================== */
+
+
+/* ==================================================
+   4.1. TABLETAS — VIEWPORT ENTRE 601px Y 900px
+   ================================================== */
+
+/* Aplica estos estilos cuando el viewport mide
+   como mínimo 601px y como máximo 900px */
+
+@media (min-width: 601px) and (max-width: 900px) {
+
+    /* TÍTULO DEL HERO EN TABLETAS */
+    .hero h1 {
+        font-size: 64px; /* Reduce el título de 96px a 64px */
+    }
+
+    /* DESCRIPCIÓN DEL HERO EN TABLETAS */
+    .hero p {
+        max-width: 320px; /* Limita el ancho del texto para evitar superposiciones */
+    }
+
+}
+
+
+/* ==================================================
+   4.2. DISPOSITIVOS MÓVILES — VIEWPORT DE 600px O MENOS
+   ================================================== */
+
+/* Aplica estos estilos cuando el viewport
+   tiene un ancho igual o inferior a 600px */
+
+@media (max-width: 600px) {
+
+    /* ======================================
+       HEADER RESPONSIVE
+       ====================================== */
+
+    .header .container {
+
+        /* Cambia el eje principal de Flexbox a vertical.
+           Coloca el logotipo encima del menú */
+        flex-direction: column;
+
+        /* Separa el logotipo y la navegación 16px */
+        gap: 16px;
+    }
+
+
+    /* ======================================
+       NAVEGACIÓN RESPONSIVE
+       ====================================== */
+
+    .header nav {
+
+        /* Permite que los enlaces completos pasen a otra fila
+           cuando no exista suficiente espacio horizontal */
+        flex-wrap: wrap;
+
+        /* Centra los enlaces horizontalmente en cada fila */
+        justify-content: center;
+
+        /* Establece una separación de 12px entre los enlaces */
+        gap: 12px;
+
+        /* Hace que el menú ocupe todo el ancho disponible
+           dentro de su contenedor padre */
+        width: 100%;
+    }
+
+
+    /* ENLACES DE NAVEGACIÓN EN MÓVILES */
+
+    .header nav a {
+
+        /* Reduce el tamaño de los enlaces a 14px */
+        font-size: 14px;
+
+        /* Evita saltos de línea automáticos dentro
+           del texto de cada enlace */
+        white-space: nowrap;
+    }
+
+
+    /* ======================================
+       TÍTULO DEL HERO RESPONSIVE
+       ====================================== */
+
+    .hero h1 {
+
+        /* Reduce el tamaño del título en celulares */
+        font-size: 42px;
+    }
+
+
+    /* ======================================
+       IMAGEN Y ESPACIADO DEL HERO RESPONSIVE
+       ====================================== */
+
+    .hero {
+
+        /* Ajusta el ancho de la imagen de fondo al 100%
+           y calcula automáticamente el alto proporcional */
+        background-size: 100% auto;
+
+        /* Centra horizontalmente la imagen de fondo
+           y la coloca en la parte inferior */
+        background-position: center bottom;
+
+        /* Reserva espacio inferior equivalente al 65%
+           del ancho del viewport para mostrar el juguete */
+        padding-bottom: 65vw;
+    }
+
+}
