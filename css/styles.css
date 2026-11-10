@@ -506,3 +506,125 @@ body {
         gap: 24px;
     }
 }
+
+
+/* ==================================================
+   11. FOOTER — PIE DE PÁGINA
+   ================================================== */
+
+
+/* 11.1. Apariencia general del Footer */
+.footer {
+
+    /* Establece el fondo gris oscuro del diseño original */
+    background-color: #333333;
+
+    /* Agrega 32px de espacio interior arriba y abajo */
+    padding: 32px 0;
+}
+
+
+/* 11.2. Distribución del contenido mediante Flexbox */
+.footer .container {
+
+    /* Organiza los hijos directos mediante Flexbox */
+    display: flex;
+
+    /* Coloca el logotipo a la izquierda y
+       la navegación hacia el extremo derecho */
+    justify-content: space-between;
+
+    /* Alinea verticalmente los elementos en el centro */
+    align-items: center;
+
+    /* Establece una separación mínima entre
+       el logotipo y la navegación */
+    gap: 24px;
+}
+
+
+/* 11.3. Estilos del logotipo */
+.footer-logo {
+
+    /* Establece el color blanco del texto */
+    color: #ffffff;
+
+    /* Define el tamaño del logotipo */
+    font-size: 24px;
+
+    /* Aplica un grosor de fuente en negrita */
+    font-weight: 700;
+}
+
+
+/* 11.4. Distribución de los enlaces */
+.footer nav {
+
+    /* Activa Flexbox dentro de la navegación */
+    display: flex;
+
+    /* Establece una separación de 24px entre enlaces */
+    gap: 24px;
+}
+
+
+/* 11.5. Estilos de los enlaces del Footer */
+.footer nav a {
+
+    /* Establece el color blanco del texto */
+    color: #ffffff;
+
+    /* Elimina el subrayado predeterminado */
+    text-decoration: none;
+
+    /* Define el tamaño de la fuente */
+    font-size: 16px;
+
+    /* Suaviza los cambios de color durante 0.3 segundos */
+    transition: color 0.3s ease;
+}
+
+
+/* 11.6. Efecto al pasar el cursor sobre los enlaces */
+.footer nav a:hover {
+
+    /* Cambia el texto al turquesa de nuestra página */
+    color: #cbf3f0;
+}
+
+
+/* ==================================================
+   12. RESPONSIVE — FOOTER
+   ================================================== */
+
+/* Estilos para pantallas de 600px o menos */
+@media (max-width: 600px) {
+
+    /* 12.1. Distribución del Footer en móviles */
+    .footer .container {
+
+        /* Organiza el logotipo y la navegación verticalmente */
+        flex-direction: column;
+
+        /* Centra ambos elementos horizontalmente */
+        align-items: center;
+
+        /* Establece una separación de 16px entre ambos */
+        gap: 16px;
+    }
+
+    /* 12.2. Navegación del Footer en móviles */
+    .footer nav {
+
+        /* Permite que los enlaces pasen a otra fila
+           cuando no exista suficiente espacio horizontal */
+        flex-wrap: wrap;
+
+        /* Centra los enlaces dentro de cada fila */
+        justify-content: center;
+
+        /* Establece una separación de 12px
+           entre filas y columnas de enlaces */
+        gap: 12px;
+    }
+}
