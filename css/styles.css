@@ -271,3 +271,155 @@ body {
 
     line-height: 1.6; /* Establece la altura de línea en 1.6 veces el tamaño de fuente */
 }
+
+/* ==================================================
+   6. CATÁLOGO DE PRODUCTOS — CSS GRID
+   ================================================== */
+
+
+/* ==================================================
+   6.1. APARIENCIA GENERAL DEL CATÁLOGO
+   ================================================== */
+
+.catalog {
+
+    /* Establece el fondo turquesa claro del diseño original */
+    background-color: #cbf3f0;
+
+    /* Agrega 64px de espacio interior arriba y abajo.
+       No agrega espacio interior a izquierda y derecha */
+    padding: 64px 0;
+
+    /* Centra horizontalmente el texto y el contenido inline.
+       Esta propiedad se hereda a los elementos descendientes */
+    text-align: center;
+}
+
+
+/* ==================================================
+   6.2. CONTENEDOR DE PRODUCTOS — CSS GRID
+   ================================================== */
+
+.products-grid {
+
+    /* Activa CSS Grid.
+       Los tres <article> hijos directos se convierten en Grid Items */
+    display: grid;
+
+    /* Crea tres columnas de igual proporción.
+       repeat(3, 1fr) equivale a escribir 1fr 1fr 1fr.
+       Cada columna recibe una fracción del espacio disponible */
+    grid-template-columns: repeat(3, 1fr);
+
+    /* Establece una separación de 24px entre las columnas
+       y también entre las filas, si existen varias */
+    gap: 24px;
+}
+
+
+/* ==================================================
+   6.3. IMÁGENES DE LAS TARJETAS
+   ================================================== */
+
+.product-card img {
+
+    /* Establece un ancho de referencia de 180px */
+    width: 180px;
+
+    /* Impide que la imagen supere el ancho disponible
+       de su elemento contenedor */
+    max-width: 100%;
+
+    /* Calcula automáticamente la altura de la imagen
+       para conservar sus proporciones originales */
+    height: auto;
+}
+
+
+/* ==================================================
+   6.4. ENLACES DE COMPRA — ESTILO DE BOTÓN
+   ================================================== */
+
+.product-card a {
+
+    /* Permite aplicar padding y mantener el ancho
+       ajustado al contenido del enlace */
+    display: inline-block;
+
+    /* Establece el fondo naranja del diseño original */
+    background-color: #ffbf69;
+
+    /* Define el color negro del texto */
+    color: #000000;
+
+    /* Elimina el subrayado predeterminado del enlace */
+    text-decoration: none;
+
+    /* Agrega 10px arriba y abajo, y 26px a los lados */
+    padding: 10px 26px;
+
+    /* Establece el tamaño del texto */
+    font-size: 16px;
+
+    /* Anima los cambios del color de fondo durante
+       0.3 segundos, utilizando una curva de velocidad suave */
+    transition: background-color 0.3s ease;
+}
+
+
+/* ==================================================
+   6.5. EFECTO HOVER EN LOS BOTONES
+   ================================================== */
+
+.product-card a:hover {
+
+    /* Cambia el naranja a una tonalidad más intensa
+       cuando el cursor pasa sobre el enlace */
+    background-color: #f5a942;
+}
+
+
+/* ==================================================
+   7. RESPONSIVE — CATÁLOGO DE PRODUCTOS
+   ================================================== */
+
+/* Aplica estos estilos cuando el viewport
+   tiene un ancho igual o inferior a 600px */
+@media (max-width: 600px) {
+
+    /* Distribución del catálogo en dispositivos móviles */
+    .products-grid {
+
+        /* Cambia la cuadrícula de tres columnas
+           a una sola columna que ocupa el ancho disponible */
+        grid-template-columns: 1fr;
+
+    }
+
+}
+
+
+/* ==================================================
+   8. RESPONSIVE — CATÁLOGO PARA TABLETAS
+   ================================================== */
+
+/* Aplica estos estilos cuando el viewport tiene
+   un ancho entre 601px y 900px */
+@media (min-width: 601px) and (max-width: 900px) {
+
+    /* Distribución del catálogo en tabletas */
+    .products-grid {
+
+        /* Organiza los productos en dos columnas
+           de igual proporción */
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Selecciona la última tarjeta del catálogo */
+    .product-card:last-child {
+
+        /* Extiende la tarjeta desde la primera línea
+           hasta la última línea explícita del Grid */
+        grid-column: 1 / -1;
+    }
+}
