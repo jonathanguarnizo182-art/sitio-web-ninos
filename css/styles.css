@@ -1,506 +1,817 @@
-/* ==========================================
-   0. ESTILOS GENERALES
-   ========================================== */
+/* =============================================================
+   PROYECTO POP IT — HOJA DE ESTILOS PRINCIPAL
+
+   Tecnologías:
+   - CSS3
+   - Flexbox
+   - CSS Grid
+   - Responsive Design
+
+   Organización:
+   1. Estilos generales
+   2. Header
+   3. Hero
+   4. About
+   5. Catálogo
+   6. Reglas del juego
+   7. Footer
+   8. Responsive para tabletas
+   9. Responsive para móviles
+   10. Accesibilidad
+
+   ============================================================= */
+
+
+/* =============================================================
+   1. ESTILOS GENERALES
+   ============================================================= */
+
+/*
+   Modelo de caja:
+
+   border-box permite que el ancho y alto declarados
+   incluyan el padding y los bordes del elemento.
+*/
 
 * {
     box-sizing: border-box;
 }
 
+
+/*
+   Permite un desplazamiento suave cuando el usuario
+   utiliza los enlaces internos del sitio.
+*/
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+/*
+   Elimina los márgenes predeterminados del body
+   y establece la tipografía general.
+*/
+
 body {
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
+    color: #000000;
 }
 
-/* ==========================================
-   1. CONTENEDOR REUTILIZABLE
-   ========================================== */
+
+/*
+   Contenedor reutilizable:
+
+   - Ocupa el 90% del ancho disponible.
+   - Nunca supera los 1100px.
+   - Se centra horizontalmente.
+
+   Esta clase se utiliza en distintas secciones
+   para mantener una alineación uniforme.
+*/
 
 .container {
-    width: 90%;          /* Ocupa el 90% del ancho disponible */
-    max-width: 1100px;   /* Limita el ancho máximo */
-    margin: 0 auto;      /* Centra horizontalmente el contenedor */
+    width: 90%;
+    max-width: 1100px;
+    margin: 0 auto;
 }
 
-/* ==========================================
-   2. HEADER — FLEXBOX
-   ========================================== */
 
-/* Apariencia general del Header */
+/*
+   Indicador de foco:
+
+   Permite identificar visualmente los enlaces
+   cuando se navega mediante el teclado.
+*/
+
+a:focus-visible {
+    outline: 3px solid #153c57;
+    outline-offset: 4px;
+}
+
+
+
+/* =============================================================
+   2. HEADER — ENCABEZADO PRINCIPAL
+   ============================================================= */
+
+
+/* 2.1. Apariencia general */
+
 .header {
-    background-color: #ffbf69; /* Fondo naranja */
-    padding: 24px 0;           /* 24px arriba y abajo; 0 a los lados */
-}
-/* Distribución del logotipo y la navegación */
-.header .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+
+    /* Color naranja de la maqueta original */
+    background-color: #ffbf69;
+
+    /* Espacio interior vertical */
+    padding: 24px 0;
 }
 
-/* Distribución de los enlaces del menú */
-.header nav {
+
+/* 2.2. Distribución del contenido */
+
+.header .container {
+
+    /* Organiza horizontalmente el logotipo y la navegación */
     display: flex;
+
+    /* Alinea los elementos en el eje transversal */
+    align-items: center;
+
+    /* Distribuye el espacio disponible entre ambos bloques */
+    justify-content: space-between;
+
+    /* Mantiene una separación entre logotipo y navegación */
     gap: 24px;
 }
 
-/* Estilos del logotipo */
+
+/* 2.3. Logotipo */
+
 .header .logo {
-    font-size: 28px;     /* Tamaño del texto */
-    font-weight: 700;    /* Grosor de la fuente: negrita */
-    color: #000000;      /* Color negro */
+
+    /* Conserva el color original del encabezado */
+    color: #000000;
+
+    font-size: 28px;
+    font-weight: 700;
+
+    /* Elimina el subrayado del enlace */
+    text-decoration: none;
+
+    /* Evita dividir el nombre de la marca en varias líneas */
+    white-space: nowrap;
 }
 
-/* Estilos de los enlaces de navegación */
+
+/* 2.4. Navegación */
+
+.header nav {
+
+    /* Organiza los enlaces horizontalmente */
+    display: flex;
+
+    /* Permite distribuir enlaces en varias filas si es necesario */
+    flex-wrap: wrap;
+
+    /* Centra los enlaces dentro de sus filas */
+    justify-content: center;
+
+    /*
+       gap:
+       Primer valor: separación entre filas.
+       Segundo valor: separación entre columnas.
+    */
+    gap: 16px 24px;
+}
+
+
+/* 2.5. Estilos de enlaces */
+
 .header nav a {
-    color: #000000;          /* Color negro del texto */
-    text-decoration: none;   /* Elimina el subrayado */
-    font-size: 16px;         /* Tamaño de la fuente */
-    font-weight: 500;        /* Grosor medio de la fuente */
+
+    color: #000000;
+
+    font-size: 16px;
+    font-weight: 500;
+
+    text-decoration: none;
+
+    /* Mantiene cada enlace en una sola línea */
+    white-space: nowrap;
+
+    /* Suaviza los cambios de color */
+    transition: color 0.3s ease;
 }
 
-/* Efecto al pasar el cursor sobre los enlaces */
+
+/* 2.6. Efecto Hover */
+
 .header nav a:hover {
-    color: #ffffff; /* Cambia el texto a blanco */
+
+    /* Cambia el texto al pasar el cursor */
+    color: #ffffff;
 }
 
-/* ==========================================
-   3. HERO — SECCIÓN PRINCIPAL
-   ========================================== */
+
+
+/* =============================================================
+   3. HERO — PRESENTACIÓN PRINCIPAL
+   ============================================================= */
+
+
+/* 3.1. Apariencia general */
 
 .hero {
-    /* Establece el color de fondo de la sección */
+
+    /* Fondo naranja principal */
     background-color: #ffbf69;
 
-    /* Carga una imagen de fondo desde la carpeta img */
+    /*
+       Imagen decorativa del Hero.
+
+       ../ permite salir de la carpeta css
+       para acceder a la carpeta img.
+    */
     background-image: url("../img/background.png");
 
-    /* Evita que la imagen se repita horizontal o verticalmente */
+    /* Evita repetir la imagen */
     background-repeat: no-repeat;
 
-    /* Agrega 80px de espacio interior arriba y abajo, y 0 a los lados */
-    padding: 80px 0;
+    /* Posiciona la imagen a la derecha */
+    background-position: right center;
 
-    /* Ajusta la altura de la imagen al 100% del área del fondo.
-       Calcula el ancho automáticamente para conservar sus proporciones */
+    /*
+       Ajusta la altura de la imagen al 100%
+       del área del fondo y conserva sus proporciones.
+    */
     background-size: auto 100%;
 
-    /* Alinea la imagen a la derecha y la centra verticalmente */
-    background-position: right center;
+    /* Espaciado vertical de la sección */
+    padding: 80px 0;
 }
 
-/* Estilos del título principal */
+
+/* 3.2. Título principal */
+
 .hero h1 {
-    font-size: 96px;     /* Tamaño del título */
-    color: #ffffff;      /* Color blanco */
-    margin: 0;          /* Elimina los márgenes predeterminados */
+
+    /* Elimina el margen predeterminado */
+    margin: 0;
+
+    /* Tamaño destacado para escritorio */
+    font-size: 96px;
+
+    /* Color blanco de la maqueta original */
+    color: #ffffff;
 }
 
-/* Descripción del Hero */
+
+/* 3.3. Descripción */
+
 .hero p {
-    font-size: 20px;    /* Tamaño de la fuente */
-    line-height: 1.5;   /* Altura de línea: 1.5 veces el tamaño de fuente */
-    color: #ffffff;      /* Color blanco */
-    max-width: 450px;   /* Limita el ancho del párrafo */
+
+    /* Evita que el párrafo ocupe demasiado ancho */
+    max-width: 450px;
+
+    font-size: 20px;
+
+    /* Mejora la separación vertical entre líneas */
+    line-height: 1.5;
+
+    color: #ffffff;
 }
 
-/* Enlace de compra con apariencia de botón */
-.hero a {
-    display: inline-block;     /* Permite aplicar dimensiones y padding */
-    background-color: #cbf3f0; /* Fondo turquesa claro */
-    color: #000000;            /* Texto negro */
-    text-decoration: none;     /* Elimina el subrayado */
-    padding: 14px 32px;        /* Espacio interior */
+
+/* 3.4. Botón principal */
+
+.hero-cta {
+
+    /*
+       Permite que el enlace conserve un ancho ajustado
+       al contenido y admita padding correctamente.
+    */
+    display: inline-block;
+
+    /* Espacio interior vertical y horizontal */
+    padding: 14px 32px;
+
+    /* Color turquesa original */
+    background-color: #cbf3f0;
+
+    color: #000000;
+
+    text-decoration: none;
+
+    /* Transición progresiva del color de fondo */
     transition: background-color 0.3s ease;
 }
 
-/* Cambio de color al pasar el cursor */
-.hero a:hover {
+
+/* 3.5. Efecto Hover */
+
+.hero-cta:hover {
+
     background-color: #91e7e0;
 }
 
-/* ==================================================
-   4. RESPONSIVE DESIGN
-   ================================================== */
 
 
-/* ==================================================
-   4.1. TABLETAS — VIEWPORT ENTRE 601px Y 900px
-   ================================================== */
-
-/* Aplica estos estilos cuando el viewport mide
-   como mínimo 601px y como máximo 900px */
-
-@media (min-width: 601px) and (max-width: 900px) {
-
-    /* TÍTULO DEL HERO EN TABLETAS */
-    .hero h1 {
-        font-size: 64px; /* Reduce el título de 96px a 64px */
-    }
-
-    /* DESCRIPCIÓN DEL HERO EN TABLETAS */
-    .hero p {
-        max-width: 320px; /* Limita el ancho del texto para evitar superposiciones */
-    }
-
-}
+/* =============================================================
+   4. ABOUT — ¿QUÉ ES POP IT?
+   ============================================================= */
 
 
-/* ==================================================
-   4.2. DISPOSITIVOS MÓVILES — VIEWPORT DE 600px O MENOS
-   ================================================== */
+/* 4.1. Apariencia general */
 
-/* Aplica estos estilos cuando el viewport
-   tiene un ancho igual o inferior a 600px */
-
-@media (max-width: 600px) {
-
-    /* ======================================
-       HEADER RESPONSIVE
-       ====================================== */
-
-    .header .container {
-
-        /* Cambia el eje principal de Flexbox a vertical.
-           Coloca el logotipo encima del menú */
-        flex-direction: column;
-
-        /* Separa el logotipo y la navegación 16px */
-        gap: 16px;
-    }
-
-
-    /* ======================================
-       NAVEGACIÓN RESPONSIVE
-       ====================================== */
-
-    .header nav {
-
-        /* Permite que los enlaces completos pasen a otra fila
-           cuando no exista suficiente espacio horizontal */
-        flex-wrap: wrap;
-
-        /* Centra los enlaces horizontalmente en cada fila */
-        justify-content: center;
-
-        /* Establece una separación de 12px entre los enlaces */
-        gap: 12px;
-
-        /* Hace que el menú ocupe todo el ancho disponible
-           dentro de su contenedor padre */
-        width: 100%;
-    }
-
-
-    /* ENLACES DE NAVEGACIÓN EN MÓVILES */
-
-    .header nav a {
-
-        /* Reduce el tamaño de los enlaces a 14px */
-        font-size: 14px;
-
-        /* Evita saltos de línea automáticos dentro
-           del texto de cada enlace */
-        white-space: nowrap;
-    }
-
-
-    /* ======================================
-       TÍTULO DEL HERO RESPONSIVE
-       ====================================== */
-
-    .hero h1 {
-
-        /* Reduce el tamaño del título en celulares */
-        font-size: 42px;
-    }
-
-
-    /* ======================================
-       IMAGEN Y ESPACIADO DEL HERO RESPONSIVE
-       ====================================== */
-
-    .hero {
-
-        /* Ajusta el ancho de la imagen de fondo al 100%
-           y calcula automáticamente el alto proporcional */
-        background-size: 100% auto;
-
-        /* Centra horizontalmente la imagen de fondo
-           y la coloca en la parte inferior */
-        background-position: center bottom;
-
-        /* Reserva espacio inferior equivalente al 65%
-           del ancho del viewport para mostrar el juguete */
-        padding-bottom: 65vw;
-    }
-}
-
-/* ==========================================
-   5. ABOUT — SECCIÓN INFORMATIVA
-   ========================================== */
-
-/* Apariencia general de la sección informativa */
 .about {
 
-    /* Conserva el fondo blanco del diseño original */
     background-color: #ffffff;
 
-    /* Agrega 64px de espacio interior arriba y abajo */
+    /* Espacio superior e inferior */
     padding: 64px 0;
 
-    /* Centra horizontalmente el contenido textual */
+    /* Centra el título y el texto */
     text-align: center;
 }
 
-/* Estilos del título de la sección informativa */
+
+/* 4.2. Encabezado */
+
 .about h2 {
-    font-size: 28px;      /* Establece el tamaño del título */
-    font-weight: 700;     /* Aplica negrita al texto */
-    color: #000000;       /* Conserva el color negro del diseño original */
-    margin-top: 0;        /* Elimina el margen superior predeterminado */
-    margin-bottom: 24px;  /* Separa el título del párrafo */
+
+    /*
+       Elimina los márgenes superior y laterales.
+       Conserva una separación inferior de 24px.
+    */
+    margin: 0 0 24px;
+
+    font-size: 28px;
 }
 
-/* Descripción de la sección informativa */
+
+/* 4.3. Descripción */
+
 .about p {
-    max-width: 700px; /* Limita el ancho máximo del párrafo */
 
-    margin: 0 auto;   /* Centra horizontalmente la caja del párrafo */
+    /*
+       Limita el ancho del párrafo para mejorar
+       la legibilidad en pantallas grandes.
+    */
+    max-width: 700px;
 
-    font-size: 16px;  /* Define el tamaño del texto */
+    /* Centra horizontalmente el párrafo */
+    margin: 0 auto;
 
-    line-height: 1.6; /* Establece la altura de línea en 1.6 veces el tamaño de fuente */
+    font-size: 16px;
+
+    line-height: 1.6;
 }
 
-/* ==================================================
-   6. CATÁLOGO DE PRODUCTOS — CSS GRID
-   ================================================== */
 
 
-/* ==================================================
-   6.1. APARIENCIA GENERAL DEL CATÁLOGO
-   ================================================== */
+/* =============================================================
+   5. CATÁLOGO — PRODUCTOS CON CSS GRID
+   ============================================================= */
+
+
+/* 5.1. Apariencia general */
 
 .catalog {
 
-    /* Establece el fondo turquesa claro del diseño original */
+    /* Fondo turquesa de la maqueta original */
     background-color: #cbf3f0;
 
-    /* Agrega 64px de espacio interior arriba y abajo.
-       No agrega espacio interior a izquierda y derecha */
+    /* Espacio interior vertical */
     padding: 64px 0;
 
-    /* Centra horizontalmente el texto y el contenido inline.
-       Esta propiedad se hereda a los elementos descendientes */
+    /* Centra títulos y contenido inline */
     text-align: center;
 }
 
 
-/* ==================================================
-   6.2. CONTENEDOR DE PRODUCTOS — CSS GRID
-   ================================================== */
+/* 5.2. Encabezado del catálogo */
+
+.catalog h2 {
+
+    margin: 0 0 32px;
+
+    font-size: 28px;
+}
+
+
+/* 5.3. Contenedor CSS Grid */
 
 .products-grid {
 
-    /* Activa CSS Grid.
-       Los tres <article> hijos directos se convierten en Grid Items */
+    /*
+       Activa CSS Grid.
+
+       Los article.product-card son Grid Items
+       porque son hijos directos de este contenedor.
+    */
     display: grid;
 
-    /* Crea tres columnas de igual proporción.
-       repeat(3, 1fr) equivale a escribir 1fr 1fr 1fr.
-       Cada columna recibe una fracción del espacio disponible */
-    grid-template-columns: repeat(3, 1fr);
+    /*
+       Crea tres columnas de igual proporción.
 
-    /* Establece una separación de 24px entre las columnas
-       y también entre las filas, si existen varias */
-    gap: 24px;
+       minmax(0, 1fr) permite reducir las columnas
+       sin imponer el mínimo automático del contenido.
+    */
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+
+    /* Separa filas y columnas */
+    gap: 32px;
 }
 
 
-/* ==================================================
-   6.3. IMÁGENES DE LAS TARJETAS
-   ================================================== */
+/* 5.4. Tarjetas de productos */
 
-.product-card img {
+.product-card {
 
-    /* Establece un ancho de referencia de 180px */
-    width: 180px;
-
-    /* Impide que la imagen supere el ancho disponible
-       de su elemento contenedor */
-    max-width: 100%;
-
-    /* Calcula automáticamente la altura de la imagen
-       para conservar sus proporciones originales */
-    height: auto;
-}
-
-
-/* ==================================================
-   6.4. ENLACES DE COMPRA — ESTILO DE BOTÓN
-   ================================================== */
-
-.product-card a {
-
-    /* Permite aplicar padding y mantener el ancho
-       ajustado al contenido del enlace */
-    display: inline-block;
-
-    /* Establece el fondo naranja del diseño original */
-    background-color: #ffbf69;
-
-    /* Define el color negro del texto */
-    color: #000000;
-
-    /* Elimina el subrayado predeterminado del enlace */
-    text-decoration: none;
-
-    /* Agrega 10px arriba y abajo, y 26px a los lados */
-    padding: 10px 26px;
-
-    /* Establece el tamaño del texto */
-    font-size: 16px;
-
-    /* Anima los cambios del color de fondo durante
-       0.3 segundos, utilizando una curva de velocidad suave */
-    transition: background-color 0.3s ease;
-}
-
-
-/* ==================================================
-   6.5. EFECTO HOVER EN LOS BOTONES
-   ================================================== */
-
-.product-card a:hover {
-
-    /* Cambia el naranja a una tonalidad más intensa
-       cuando el cursor pasa sobre el enlace */
-    background-color: #f5a942;
-}
-
-
-/* ==================================================
-   7. RESPONSIVE — CATÁLOGO DE PRODUCTOS
-   ================================================== */
-
-/* Aplica estos estilos cuando el viewport
-   tiene un ancho igual o inferior a 600px */
-@media (max-width: 600px) {
-
-    /* Distribución del catálogo en dispositivos móviles */
-    .products-grid {
-
-        /* Cambia la cuadrícula de tres columnas
-           a una sola columna que ocupa el ancho disponible */
-        grid-template-columns: 1fr;
-
-    }
-
-}
-
-
-/* ==================================================
-   8. RESPONSIVE — CATÁLOGO PARA TABLETAS
-   ================================================== */
-
-/* Aplica estos estilos cuando el viewport tiene
-   un ancho entre 601px y 900px */
-@media (min-width: 601px) and (max-width: 900px) {
-
-    /* Distribución del catálogo en tabletas */
-    .products-grid {
-
-        /* Organiza los productos en dos columnas
-           de igual proporción */
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    /* Selecciona la última tarjeta del catálogo */
-    .product-card:last-child {
-
-        /* Extiende la tarjeta desde la primera línea
-           hasta la última línea explícita del Grid */
-        grid-column: 1 / -1;
-    }
-}
-
-
-/* ==================================================
-   9. REGLAS DEL JUEGO — FLEXBOX
-   ================================================== */
-
-/* 9.1. Apariencia general de la sección */
-.rules {
-
-    /* Establece 64px de espacio interior arriba y abajo */
-    padding: 64px 0;
-
-    /* Define el fondo blanco de la sección */
-    background-color: #ffffff;
-}
-
-
-/* 9.2. Distribución del texto y la imagen */
-.rules .container {
-
-    /* Activa Flexbox para organizar los hijos directos */
+    /*
+       Flexbox permite organizar verticalmente
+       la imagen, el título y el botón.
+    */
     display: flex;
 
-    /* Alinea verticalmente los elementos en el centro */
+    flex-direction: column;
+
+    /* Centra los elementos horizontalmente */
     align-items: center;
 
-    /* Establece 48px de separación entre los elementos */
-    gap: 48px;
-}
+    /* Separación entre elementos */
+    gap: 16px;
 
-
-/* 9.3. Distribución del espacio disponible */
-.rules-content,
-.rules-image {
-
-    /* Permite que ambos elementos compartan
-       proporcionalmente el espacio disponible */
-    flex: 1;
-
-    /* Permite reducir su ancho por debajo del tamaño
-       mínimo automático de su contenido */
+    /* Evita restricciones de ancho mínimo innecesarias */
     min-width: 0;
 }
 
 
-/* 9.4. Dimensiones de la imagen */
-.rules-image img {
+/* 5.5. Imágenes del catálogo */
 
-    /* La imagen utiliza todo el ancho de su contenedor */
-    width: 100%;
+.product-card img {
 
-    /* Conserva las proporciones originales */
-    height: auto;
+    /* Ancho de referencia */
+    width: 180px;
 
-    /* Evita el espacio inferior característico
-       de las imágenes inline */
-    display: block;
+    /* Evita superar el ancho del contenedor */
+    max-width: 100%;
+
+    /*
+       Área visual de altura uniforme.
+
+       Se utiliza object-fit para conservar
+       las proporciones originales de las imágenes.
+    */
+    height: 180px;
+
+    object-fit: contain;
 }
 
 
-/* ==================================================
-   10. RESPONSIVE — REGLAS DEL JUEGO
-   ================================================== */
+/* 5.6. Nombres de los productos */
 
-/* Aplica los siguientes estilos en pantallas
-   de 600px de ancho o menos */
-@media (max-width: 600px) {
+.product-card h3 {
 
-    /* Adapta el contenido de las reglas a celulares */
+    margin: 0;
+
+    font-size: 18px;
+}
+
+
+/* 5.7. Botones de demostración */
+
+.product-card button {
+
+    /* Elimina el borde predeterminado */
+    border: 0;
+
+    /* Espaciado interior */
+    padding: 10px 26px;
+
+    /* Fondo naranja */
+    background-color: #ffbf69;
+
+    color: #000000;
+
+    /* Hereda las propiedades tipográficas del elemento padre */
+    font: inherit;
+}
+
+
+/* 5.8. Estado deshabilitado */
+
+.product-card button:disabled {
+
+    /*
+       Reduce ligeramente la intensidad visual
+       para comunicar que la compra no está disponible.
+    */
+    opacity: 0.75;
+
+    /*
+       Indica que esta acción no se encuentra disponible.
+    */
+    cursor: not-allowed;
+}
+
+
+/* 5.9. Nota informativa */
+
+.catalog-note {
+
+    /* Separación respecto a los productos */
+    margin: 28px 0 0;
+
+    font-size: 13px;
+
+    line-height: 1.5;
+}
+
+
+
+/* =============================================================
+   6. REGLAS DEL JUEGO — FLEXBOX
+   ============================================================= */
+
+
+/* 6.1. Apariencia y fondo decorativo */
+
+.rules {
+
+    /* Espacio interior de la sección */
+    padding: 64px 0;
+
+    /* Fondo principal blanco */
+    background-color: #ffffff;
+
+    /*
+       Imagen decorativa naranja del diseño original.
+
+       Al ser decorativa, se utiliza background-image
+       en lugar de un elemento img dentro del HTML.
+    */
+    background-image: url("../img/bg-grid.png");
+
+    /* Evita repetir el fondo */
+    background-repeat: no-repeat;
+
+    /* Centra el fondo decorativo */
+    background-position: center center;
+
+    /*
+       Ajusta el ancho del fondo al 100%
+       y conserva su relación de aspecto.
+    */
+    background-size: 100% auto;
+}
+
+
+/* 6.2. Distribución principal */
+
+.rules .container {
+
+    /*
+       Organiza horizontalmente:
+       - El bloque de texto.
+       - El bloque de imagen.
+    */
+    display: flex;
+
+    /* Centra verticalmente los dos bloques */
+    align-items: center;
+
+    /* Separación entre texto e imagen */
+    gap: 48px;
+}
+
+
+/* 6.3. Propiedades compartidas */
+
+.rules-content,
+.rules-image {
+
+    /*
+       Permite que los elementos Flexbox puedan
+       reducirse sin provocar desbordamiento.
+    */
+    min-width: 0;
+}
+
+
+/* 6.4. Espacio del contenido textual */
+
+.rules-content {
+
+    /*
+       Recibe tres partes del espacio flexible.
+
+       En conjunto con flex: 2 de la imagen,
+       el texto recibe aproximadamente el 60%.
+    */
+    flex: 3;
+}
+
+
+/* 6.5. Espacio de la fotografía */
+
+.rules-image {
+
+    /*
+       Recibe dos partes del espacio flexible.
+
+       Aproximadamente el 40% del espacio
+       repartido entre ambos elementos.
+    */
+    flex: 2;
+}
+
+
+/* 6.6. Título de la sección */
+
+.rules-content h2 {
+
+    margin: 0 0 24px;
+
+    font-size: 28px;
+}
+
+
+/* 6.7. Instrucciones del juego */
+
+.rules-content p {
+
+    margin: 0;
+
+    font-size: 16px;
+
+    line-height: 1.6;
+}
+
+
+/* 6.8. Fotografía */
+
+.rules-image img {
+
+    /*
+       Elimina el pequeño espacio inferior
+       habitual de las imágenes inline.
+    */
+    display: block;
+
+    /* Ocupa el ancho disponible */
+    width: 100%;
+
+    /* Mantiene las proporciones de la fotografía */
+    height: auto;
+}
+
+
+
+/* =============================================================
+   7. FOOTER — PIE DE PÁGINA
+   ============================================================= */
+
+
+/* 7.1. Apariencia general */
+
+.footer {
+
+    /* Espaciado vertical */
+    padding: 32px 0;
+
+    /* Fondo oscuro del diseño */
+    background-color: #333333;
+}
+
+
+/* 7.2. Contenedor principal */
+
+.footer .container {
+
+    /*
+       Flexbox organiza los dos hijos directos:
+       - Logotipo.
+       - Navegación.
+    */
+    display: flex;
+
+    /* Alineación sobre el eje transversal */
+    align-items: center;
+
+    /* Separa el logotipo y la navegación */
+    justify-content: space-between;
+
+    gap: 24px;
+}
+
+
+/* 7.3. Logotipo */
+
+.footer-logo {
+
+    color: #ffffff;
+
+    font-size: 24px;
+
+    font-weight: 700;
+
+    text-decoration: none;
+
+    /* Evita dividir la marca en varias líneas */
+    white-space: nowrap;
+}
+
+
+/* 7.4. Navegación */
+
+.footer nav {
+
+    /*
+       Segundo Flex Container del Footer.
+
+       Organiza los enlaces contenidos dentro del nav.
+    */
+    display: flex;
+
+    /* Permite saltar a otra fila cuando sea necesario */
+    flex-wrap: wrap;
+
+    /* Centra los enlaces de navegación */
+    justify-content: center;
+
+    /* Espaciado entre filas y columnas */
+    gap: 12px 24px;
+}
+
+
+/* 7.5. Enlaces */
+
+.footer nav a {
+
+    color: #ffffff;
+
+    font-size: 16px;
+
+    text-decoration: none;
+
+    transition: color 0.3s ease;
+}
+
+
+/* 7.6. Efecto Hover */
+
+.footer nav a:hover {
+
+    color: #cbf3f0;
+}
+
+
+/* 7.7. Accesibilidad */
+
+.footer a:focus-visible {
+
+    /*
+       Utiliza un contorno visible sobre
+       el fondo oscuro del Footer.
+    */
+    outline-color: #cbf3f0;
+}
+
+
+
+/* =============================================================
+   8. RESPONSIVE DESIGN — TABLETAS
+
+   Viewport entre 601px y 900px.
+   ============================================================= */
+
+@media (min-width: 601px) and (max-width: 900px) {
+
+    /* ======================================
+       8.1. HERO
+       ====================================== */
+
+    .hero h1 {
+
+        /* Reduce el título en tabletas */
+        font-size: 64px;
+    }
+
+    .hero p {
+
+        /* Controla el ancho para reducir superposiciones */
+        max-width: 320px;
+    }
+
+
+    /* ======================================
+       8.2. CATÁLOGO
+       ====================================== */
+
+    .products-grid {
+
+        /* Cambia de tres columnas a dos */
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .product-card:last-child {
+
+        /*
+           Extiende el último producto desde
+           la primera hasta la última línea del Grid.
+        */
+        grid-column: 1 / -1;
+    }
+
+
+    /* ======================================
+       8.3. REGLAS DEL JUEGO
+       ====================================== */
+
     .rules .container {
-
-        /* Cambia la distribución horizontal
-           por una distribución vertical */
-        flex-direction: column;
-
-        /* Permite que los elementos ocupen
-           el ancho disponible del contenedor */
-        align-items: stretch;
 
         /* Reduce la separación entre texto e imagen */
         gap: 24px;
@@ -508,123 +819,175 @@ body {
 }
 
 
-/* ==================================================
-   11. FOOTER — PIE DE PÁGINA
-   ================================================== */
 
+/* =============================================================
+   9. RESPONSIVE DESIGN — MÓVILES
 
-/* 11.1. Apariencia general del Footer */
-.footer {
+   Viewport de 600px o menos.
+   ============================================================= */
 
-    /* Establece el fondo gris oscuro del diseño original */
-    background-color: #333333;
-
-    /* Agrega 32px de espacio interior arriba y abajo */
-    padding: 32px 0;
-}
-
-
-/* 11.2. Distribución del contenido mediante Flexbox */
-.footer .container {
-
-    /* Organiza los hijos directos mediante Flexbox */
-    display: flex;
-
-    /* Coloca el logotipo a la izquierda y
-       la navegación hacia el extremo derecho */
-    justify-content: space-between;
-
-    /* Alinea verticalmente los elementos en el centro */
-    align-items: center;
-
-    /* Establece una separación mínima entre
-       el logotipo y la navegación */
-    gap: 24px;
-}
-
-
-/* 11.3. Estilos del logotipo */
-.footer-logo {
-
-    /* Establece el color blanco del texto */
-    color: #ffffff;
-
-    /* Define el tamaño del logotipo */
-    font-size: 24px;
-
-    /* Aplica un grosor de fuente en negrita */
-    font-weight: 700;
-}
-
-
-/* 11.4. Distribución de los enlaces */
-.footer nav {
-
-    /* Activa Flexbox dentro de la navegación */
-    display: flex;
-
-    /* Establece una separación de 24px entre enlaces */
-    gap: 24px;
-}
-
-
-/* 11.5. Estilos de los enlaces del Footer */
-.footer nav a {
-
-    /* Establece el color blanco del texto */
-    color: #ffffff;
-
-    /* Elimina el subrayado predeterminado */
-    text-decoration: none;
-
-    /* Define el tamaño de la fuente */
-    font-size: 16px;
-
-    /* Suaviza los cambios de color durante 0.3 segundos */
-    transition: color 0.3s ease;
-}
-
-
-/* 11.6. Efecto al pasar el cursor sobre los enlaces */
-.footer nav a:hover {
-
-    /* Cambia el texto al turquesa de nuestra página */
-    color: #cbf3f0;
-}
-
-
-/* ==================================================
-   12. RESPONSIVE — FOOTER
-   ================================================== */
-
-/* Estilos para pantallas de 600px o menos */
 @media (max-width: 600px) {
 
-    /* 12.1. Distribución del Footer en móviles */
+    /* ======================================
+       9.1. HEADER Y FOOTER
+       ====================================== */
+
+    .header .container,
     .footer .container {
 
-        /* Organiza el logotipo y la navegación verticalmente */
+        /*
+           Cambia el eje principal de Flexbox
+           para colocar la marca encima del menú.
+        */
         flex-direction: column;
 
-        /* Centra ambos elementos horizontalmente */
-        align-items: center;
-
-        /* Establece una separación de 16px entre ambos */
+        /* Separación entre los bloques */
         gap: 16px;
     }
 
-    /* 12.2. Navegación del Footer en móviles */
+
+    /* ======================================
+       9.2. NAVEGACIÓN
+       ====================================== */
+
+    .header nav,
     .footer nav {
 
-        /* Permite que los enlaces pasen a otra fila
-           cuando no exista suficiente espacio horizontal */
-        flex-wrap: wrap;
+        /* Ocupa el ancho disponible */
+        width: 100%;
 
-        /* Centra los enlaces dentro de cada fila */
+        /* Centra los enlaces */
         justify-content: center;
 
-        /* Establece una separación de 12px
-           entre filas y columnas de enlaces */
+        /* Reduce la separación en móviles */
         gap: 12px;
+    }
+
+    .header nav a,
+    .footer nav a {
+
+        /* Tamaño adaptado a pantallas pequeñas */
+        font-size: 14px;
+    }
+
+
+    /* ======================================
+       9.3. HERO RESPONSIVE
+       ====================================== */
+
+    .hero {
+
+        /*
+           Ajusta el ancho de la imagen decorativa
+           al 100% del área de fondo.
+        */
+        background-size: 100% auto;
+
+        /* Coloca la imagen centrada en la parte inferior */
+        background-position: center bottom;
+
+        /*
+           Reserva espacio inferior proporcional
+           al ancho del viewport.
+
+           vw = 1% del ancho del viewport.
+        */
+        padding-bottom: 65vw;
+    }
+
+    .hero h1 {
+
+        /* Reduce el título principal */
+        font-size: 42px;
+    }
+
+    .hero p {
+
+        font-size: 18px;
+    }
+
+
+    /* ======================================
+       9.4. CATÁLOGO RESPONSIVE
+       ====================================== */
+
+    .products-grid {
+
+        /*
+           Transforma la distribución de tres columnas
+           en una única columna.
+        */
+        grid-template-columns: minmax(0, 1fr);
+
+        /* Mayor separación vertical entre productos */
+        gap: 40px;
+    }
+
+
+    /* ======================================
+       9.5. REGLAS DEL JUEGO
+       ====================================== */
+
+    .rules {
+
+        /*
+           Oculta el óvalo naranja en celulares
+           porque pierde su función decorativa
+           en la distribución vertical.
+        */
+        background-image: none;
+    }
+
+    .rules .container {
+
+        /* Coloca el texto arriba y la imagen debajo */
+        flex-direction: column;
+
+        /* Permite ocupar el ancho disponible */
+        align-items: stretch;
+
+        /* Separación vertical */
+        gap: 24px;
+    }
+
+    .rules-content,
+    .rules-image {
+
+        /*
+           Restablece el comportamiento de flex
+           para evitar repartir el espacio vertical
+           con las proporciones 3:2.
+        */
+        flex: initial;
+    }
+}
+
+
+
+/* =============================================================
+   10. ACCESIBILIDAD — MOVIMIENTO REDUCIDO
+   ============================================================= */
+
+/*
+   Algunos usuarios configuran su sistema operativo
+   para reducir las animaciones.
+
+   Esta Media Query respeta esa preferencia.
+*/
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+
+        /* Desactiva el desplazamiento animado */
+        scroll-behavior: auto;
+    }
+
+    .header nav a,
+    .hero-cta,
+    .footer nav a {
+
+        /* Elimina las transiciones de estos elementos */
+        transition: none;
     }
 }
