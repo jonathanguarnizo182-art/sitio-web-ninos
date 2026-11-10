@@ -1,106 +1,288 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
+    <!-- ==========================================
+         1. CONFIGURACIÓN GENERAL DEL DOCUMENTO
+         ========================================== -->
+
+    <!-- Define la codificación de caracteres -->
     <meta charset="UTF-8">
+
+    <!-- Permite adaptar la página a diferentes dispositivos -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Descripción general del sitio -->
+    <meta
+        name="description"
+        content="Descubre qué es Pop It, conoce nuestros modelos y aprende las reglas del juego."
+    >
+
+    <!-- Título que aparece en la pestaña del navegador -->
     <title>Pop It | Diversión para niños</title>
+
+    <!-- Vincula el archivo CSS externo -->
     <link rel="stylesheet" href="css/styles.css">
 </head>
+
 <body>
 
-    <!-- HEADER -->
+    <!-- ==========================================
+         2. HEADER — ENCABEZADO Y NAVEGACIÓN
+         ========================================== -->
+
     <header class="header">
 
-        <!-- Contenedor que limita el ancho del contenido -->
+        <!-- Contenedor reutilizable que limita el ancho -->
         <div class="container">
 
-            <div class="logo">Pop It!</div>
+            <!-- Logotipo con enlace hacia el inicio -->
+            <a
+                class="logo"
+                href="#inicio"
+                aria-label="Pop It, ir al inicio"
+            >
+                Pop It!
+            </a>
 
-            <nav>
+            <!-- Navegación principal del sitio -->
+            <nav aria-label="Navegación principal">
+
                 <a href="#nosotros">Nosotros</a>
-                <a href="#">Promociones</a>
-                <a href="#">Contacto</a>
+
+                <a href="#catalogo">Productos</a>
+
+                <a href="#reglas">Reglas del juego</a>
+
             </nav>
 
         </div>
 
     </header>
 
-    <!-- MAIN -->
-     <main class="main">
 
-            <!-- SECCIÓN HERO -->
-        <section class="hero" id="inicio">
+    <!-- ==========================================
+         3. MAIN — CONTENIDO PRINCIPAL
+         ========================================== -->
+
+    <main>
+
+        <!-- ======================================
+             3.1. HERO — PRESENTACIÓN PRINCIPAL
+             ====================================== -->
+
+        <section
+            class="hero"
+            id="inicio"
+            aria-labelledby="hero-title"
+        >
+
             <div class="container">
-                <h1>POP IT!</h1>
-                <p>¡Diversión para niños y niñas de todas las edades!</p>
-                <a href="#catalogo">Comprar ahora	</a>
+
+                <!-- Encabezado principal de la página -->
+                <h1 id="hero-title">POP IT!</h1>
+
+                <!-- Mensaje de presentación -->
+                <p>
+                    ¡Diversión para niños y niñas de todas las edades!
+                </p>
+
+                <!-- Enlace hacia el catálogo de productos -->
+                <a class="hero-cta" href="#catalogo">
+                    Ver productos
+                </a>
+
             </div>
+
         </section>
 
-        <!-- SECCIÓN INFORMATIVA: ¿QUÉ ES POP IT? -->
-        <section class="about" id="nosotros">
+
+        <!-- ======================================
+             3.2. ABOUT — INFORMACIÓN DEL PRODUCTO
+             ====================================== -->
+
+        <section
+            class="about"
+            id="nosotros"
+            aria-labelledby="about-title"
+        >
+
             <div class="container">
-                <h2>¿Qué es Pop It?</h2>
-                <p>Pop It es un juguete sensorial que se ha vuelto muy popular entre niños y adultos. Consiste en una serie de burbujas de silicona que se pueden presionar y hacer "pop", proporcionando una experiencia táctil y relajante. Es ideal para aliviar el estrés, mejorar la concentración y simplemente divertirse.</p>
+
+                <h2 id="about-title">¿Qué es Pop It?</h2>
+
+                <p>
+                    Pop It es un juguete sensorial que se ha vuelto
+                    muy popular entre niños y adultos. Consiste en
+                    una serie de burbujas de silicona que se pueden
+                    presionar y hacer "pop", proporcionando una
+                    experiencia táctil y relajante. Es ideal para
+                    aliviar el estrés, mejorar la concentración
+                    y simplemente divertirse.
+                </p>
+
             </div>
+
         </section>
 
-        <!-- SECCIÓN CATÁLOGO DE PRODUCTOS -->
-        <section class="catalog" id="catalogo">
+
+        <!-- ======================================
+             3.3. CATÁLOGO — PRODUCTOS POP IT
+             ====================================== -->
+
+        <section
+            class="catalog"
+            id="catalogo"
+            aria-labelledby="catalog-title"
+        >
 
             <div class="container">
 
-                <h2>Elige tu Pop It</h2>
+                <h2 id="catalog-title">Elige tu Pop It</h2>
 
-                <!-- Contenedor que organizará las tarjetas mediante CSS Grid -->
+                <!--
+                    Grid Container:
+                    Organiza las tres tarjetas mediante CSS Grid.
+                -->
                 <div class="products-grid">
 
-                    <!-- Primera tarjeta -->
+                    <!-- ==========================
+                         PRODUCTO 1 — CUADRADO
+                         ========================== -->
+
                     <article class="product-card">
-                        <img src="img/square.png" alt="Pop It cuadrado">
+
+                        <img
+                            src="img/square.png"
+                            alt="Pop It cuadrado de colores"
+                            loading="lazy"
+                            decoding="async"
+                        >
+
                         <h3>Pop It cuadrado</h3>
-                        <a href="#">Compra ahora</a>
+
+                        <!--
+                            Botón deshabilitado porque este proyecto
+                            todavía no tiene un sistema de compras.
+                        -->
+                        <button
+                            type="button"
+                            disabled
+                            title="Compra no disponible en esta demostración"
+                        >
+                            Compra ahora
+                        </button>
+
                     </article>
 
-                    <!-- Segunda tarjeta -->
+
+                    <!-- ==========================
+                         PRODUCTO 2 — AMONG US
+                         ========================== -->
+
                     <article class="product-card">
-                        <img src="img/amongus.png" alt="Pop It con forma de personaje Among Us">
+
+                        <img
+                            src="img/amongus.png"
+                            alt="Pop It con forma de personaje Among Us"
+                            loading="lazy"
+                            decoding="async"
+                        >
+
                         <h3>Pop It Among Us</h3>
-                        <a href="#">Compra ahora</a>
+
+                        <button
+                            type="button"
+                            disabled
+                            title="Compra no disponible en esta demostración"
+                        >
+                            Compra ahora
+                        </button>
+
                     </article>
 
-                    <!-- Tercera tarjeta -->
+
+                    <!-- ==========================
+                         PRODUCTO 3 — REDONDO
+                         ========================== -->
+
                     <article class="product-card">
-                        <img src="img/round.png" alt="Pop It redondo multicolor">
+
+                        <img
+                            src="img/round.png"
+                            alt="Pop It redondo multicolor"
+                            loading="lazy"
+                            decoding="async"
+                        >
+
                         <h3>Pop It redondo</h3>
-                        <a href="#">Compra ahora</a>
+
+                        <button
+                            type="button"
+                            disabled
+                            title="Compra no disponible en esta demostración"
+                        >
+                            Compra ahora
+                        </button>
+
                     </article>
 
                 </div>
+
+                <!-- Aclara que las compras aún no están implementadas -->
+                <p class="catalog-note">
+                    Sitio de demostración: las compras aún no están habilitadas.
+                </p>
 
             </div>
 
         </section>
 
-        <!-- SECCIÓN REGLAS DEL JUEGO -->
-        <section class="rules">
 
-            <!-- Contenedor general de la sección -->
+        <!-- ======================================
+             3.4. RULES — REGLAS DEL JUEGO
+             ====================================== -->
+
+        <section
+            class="rules"
+            id="reglas"
+            aria-labelledby="rules-title"
+        >
+
+            <!--
+                Flex Container:
+                Organiza horizontalmente el contenido
+                explicativo y la fotografía en escritorio.
+            -->
             <div class="container">
 
-                <!-- Contenido explicativo -->
+                <!-- Bloque de contenido textual -->
                 <div class="rules-content">
 
-                    <h2>Reglas del juego</h2>
-                    <p>El objetivo del juego es simple: los jugadores se turnan para presionar las burbujas del Pop It. Cada jugador puede presionar una o más burbujas en su turno, pero no puede presionar las mismas burbujas que ya han sido presionadas por el otro jugador. El jugador que presione la última burbuja pierde el juego.</p>
+                    <h2 id="rules-title">Reglas del juego</h2>
+
+                    <p>
+                        El objetivo del juego es simple: los jugadores
+                        se turnan para presionar las burbujas del
+                        Pop It. Cada jugador puede presionar una o
+                        más burbujas en su turno, pero no puede
+                        presionar las mismas burbujas que ya han sido
+                        presionadas por el otro jugador. El jugador
+                        que presione la última burbuja pierde el juego.
+                    </p>
 
                 </div>
 
-                <!-- Imagen ilustrativa de las reglas del juego -->
+
+                <!-- Bloque visual de la sección -->
                 <div class="rules-image">
 
-                    <img src="img/photo.jpg" alt="Pop It utilizado para ilustrar las reglas del juego">
+                    <img
+                        src="img/photo.jpg"
+                        alt="Una mano presionando las burbujas de un Pop It"
+                        loading="lazy"
+                        decoding="async"
+                    >
 
                 </div>
 
@@ -110,25 +292,39 @@
 
     </main>
 
-    <!-- FOOTER -->
+
+    <!-- ==========================================
+         4. FOOTER — PIE DE PÁGINA
+         ========================================== -->
+
     <footer class="footer">
+
         <div class="container">
 
-            <div class="footer-logo">Pop It!</div>
+            <!-- Logotipo con enlace de retorno al inicio -->
+            <a
+                class="footer-logo"
+                href="#inicio"
+                aria-label="Pop It, volver al inicio"
+            >
+                Pop It!
+            </a>
 
-                <!-- Navegación interna del Footer -->
-                <nav aria-label="Navegación del pie de página">
+            <!-- Navegación secundaria -->
+            <nav aria-label="Navegación del pie de página">
 
-                    <a href="#inicio">Inicio</a>
+                <a href="#inicio">Inicio</a>
 
-                    <a href="#nosotros">Nosotros</a>
+                <a href="#nosotros">Nosotros</a>
 
-                    <a href="#catalogo">Productos</a>
+                <a href="#catalogo">Productos</a>
 
-                </nav>
+            </nav>
 
         </div>
+
     </footer>
 
 </body>
+
 </html>
