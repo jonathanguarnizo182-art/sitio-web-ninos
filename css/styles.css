@@ -423,3 +423,86 @@ body {
         grid-column: 1 / -1;
     }
 }
+
+
+/* ==================================================
+   9. REGLAS DEL JUEGO — FLEXBOX
+   ================================================== */
+
+/* 9.1. Apariencia general de la sección */
+.rules {
+
+    /* Establece 64px de espacio interior arriba y abajo */
+    padding: 64px 0;
+
+    /* Define el fondo blanco de la sección */
+    background-color: #ffffff;
+}
+
+
+/* 9.2. Distribución del texto y la imagen */
+.rules .container {
+
+    /* Activa Flexbox para organizar los hijos directos */
+    display: flex;
+
+    /* Alinea verticalmente los elementos en el centro */
+    align-items: center;
+
+    /* Establece 48px de separación entre los elementos */
+    gap: 48px;
+}
+
+
+/* 9.3. Distribución del espacio disponible */
+.rules-content,
+.rules-image {
+
+    /* Permite que ambos elementos compartan
+       proporcionalmente el espacio disponible */
+    flex: 1;
+
+    /* Permite reducir su ancho por debajo del tamaño
+       mínimo automático de su contenido */
+    min-width: 0;
+}
+
+
+/* 9.4. Dimensiones de la imagen */
+.rules-image img {
+
+    /* La imagen utiliza todo el ancho de su contenedor */
+    width: 100%;
+
+    /* Conserva las proporciones originales */
+    height: auto;
+
+    /* Evita el espacio inferior característico
+       de las imágenes inline */
+    display: block;
+}
+
+
+/* ==================================================
+   10. RESPONSIVE — REGLAS DEL JUEGO
+   ================================================== */
+
+/* Aplica los siguientes estilos en pantallas
+   de 600px de ancho o menos */
+@media (max-width: 600px) {
+
+    /* Adapta el contenido de las reglas a celulares */
+    .rules .container {
+
+        /* Cambia la distribución horizontal
+           por una distribución vertical */
+        flex-direction: column;
+
+        /* Permite que los elementos ocupen
+           el ancho disponible del contenedor */
+        align-items: stretch;
+
+        /* Reduce la separación entre texto e imagen */
+        gap: 24px;
+    }
+}
